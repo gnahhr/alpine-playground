@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <title>Posts</title>
 </head>
@@ -22,7 +23,7 @@
               <h2 class="text-xl font-bold" x-text="post.title">Post 1</h2>
               <p class="text-xs" x-text="post.username"></p>
             </div>
-            <h2 class="self-center">X</h2>
+            <h2 class="self-center" @click="deletePost(post.id)">X</h2>
           </div>
           <p class="mt-4" x-text="post.body"></p>
         </div>

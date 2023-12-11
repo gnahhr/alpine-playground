@@ -3,13 +3,19 @@ function postsHandler() {
       isLoading: false,
       posts: [],
       getData(e) {
-          this.isLoading = true;
-          fetch('http://localhost:4748/posts')            
-              .then((response) => response.json())
-              .then((data) => { 
-                  this.posts = data;
-                  this.isLoading = false;
-              });
-      }  
+        this.isLoading = true;
+        axios.get('http://localhost:4748/posts')
+        .then((response) => {
+          this.posts = response.data;
+          this.isLoading = false;
+        })        
+      },
+      deletePost(id) {
+        // this.isLoading = true;
+        axios.delete('http://localhost:4748/post', {id})
+        .then((response) => {
+          console.log(response);
+        })  
+      }
   }
 }
